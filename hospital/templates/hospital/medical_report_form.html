@@ -1,0 +1,89 @@
+{% extends 'hospital/base.html' %}
+{% load static %}
+
+{% block title %}Medical Report — Appointment #{{ appointment.id }} — MediCare+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb small">
+                    <li class="breadcrumb-item"><a href="{% url 'staff_appointments' %}">Staff Appointments</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'appointment_detail' appointment.id %}">Appointment #{{ appointment.id }}</a></li>
+                    <li class="breadcrumb-item active">Medical Consultation Report</li>
+                </ol>
+            </nav>
+
+            <div class="card card-custom border-0 shadow-lg p-4 p-md-5 bg-white rounded-4">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1">
+                        <i class="bi bi-file-medical-fill me-1"></i> Diagnostic Documentation
+                    </span>
+                    <span class="badge bg-light text-dark border">Appointment #{{ appointment.id }}</span>
+                </div>
+                <h2 class="fw-bold text-dark mb-1">Doctor Consultation Report</h2>
+                <p class="text-muted small mb-4">Record clinical findings, medication prescriptions, and treatment recommendations for the patient's record.</p>
+
+                <!-- Patient & Doctor Context Bar -->
+                <div class="p-3 rounded-3 bg-light border mb-4">
+                    <div class="row g-2 small">
+                        <div class="col-md-6">
+                            <span class="text-muted">Patient:</span>
+                            <strong class="text-dark">{{ appointment.patient.name }}</strong> ({{ appointment.patient.gender }}{% if appointment.patient.blood_group %}, {{ appointment.patient.blood_group }}{% endif %})
+                        </div>
+                        <div class="col-md-6">
+                            <span class="text-muted">Consulting Doctor:</span>
+                            <strong class="text-dark">{{ appointment.doctor.name }}</strong> ({{ appointment.doctor.department }})
+                        </div>
+                        <div class="col-md-6">
+                            <span class="text-muted">Consultation Date:</span>
+                            <strong class="text-dark">{{ appointment.date|date:"F j, Y" }} ({{ appointment.time_slot }})</strong>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="text-muted">Chief Complaint:</span>
+                            <span class="text-dark">{{ appointment.reason|truncatewords:6 }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="id_diagnosis" class="form-label fw-semibold text-dark">
+                            Clinical Diagnosis & Findings <span class="text-danger">*</span>
+                        </label>
+                        {{ form.diagnosis }}
+                        <div class="form-text small">Enter primary diagnosis, symptoms observed, vitals, or examination results.</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="id_prescription" class="form-label fw-semibold text-dark">
+                            Prescription & Medications <span class="text-danger">*</span>
+                        </label>
+                        {{ form.prescription }}
+                        <div class="form-text small">List prescribed drugs, dosages, timing (e.g. 500mg BID), and course duration.</div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="id_notes" class="form-label fw-semibold text-dark">
+                            Follow-up Advice & Patient Notes
+                        </label>
+                        {{ form.notes }}
+                        <div class="form-text small">Lifestyle precautions, dietary restrictions, or follow-up appointment timeline.</div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                        <a href="{% url 'staff_appointments' %}" class="btn btn-outline-secondary rounded-pill px-4">
+                            Cancel
+                        </a>
+                        <button type="submit" class="btn btn-success rounded-pill px-5 fw-bold shadow-sm">
+                            <i class="bi bi-save me-1"></i> Save & Complete Appointment
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,394 @@
+/* ========================================================
+   MEDICARE HOSPITAL & APPOINTMENT PORTAL
+   Custom Styling & Enhanced UI Tokens
+   ======================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #0284c7;
+  --primary-dark: #0369a1;
+  --primary-light: #e0f2fe;
+  --secondary-color: #0f172a;
+  --accent-color: #06b6d4;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --info-color: #3b82f6;
+  --bg-light: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-lg: 0 10px 25px -3px rgba(15,23,42,0.08), 0 4px 6px -4px rgba(15,23,42,0.04);
+  --shadow-glow: 0 0 20px rgba(2, 132, 199, 0.18);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6, .brand-font {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ================= Navbar ================= */
+.navbar-custom {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284c7, #06b6d4);
+  color: #fff;
+  font-size: 1.35rem;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #475569 !important;
+  padding: 0.5rem 0.9rem !important;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-color) !important;
+  background-color: var(--primary-light);
+}
+
+/* ================= Hero Section ================= */
+.hero-section {
+  background: radial-gradient(circle at 10% 20%, rgba(224, 242, 254, 0.8) 0%, rgba(248, 250, 252, 1) 90%);
+  padding: 4.5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-title {
+  font-size: 3.1rem;
+  line-height: 1.15;
+  color: #0f172a;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= Cards ================= */
+.card-custom {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.card-custom:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
+}
+
+.stat-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  transition: all 0.2s;
+}
+
+.stat-card:hover {
+  border-color: #93c5fd;
+  box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* ================= Doctor Card ================= */
+.doctor-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.doctor-meta-pill {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: #f1f5f9;
+  color: #475569;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ================= Filter Tabs ================= */
+.filter-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+  color: #475569;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background-color: #f8fafc;
+  color: var(--primary-color);
+  border-color: #93c5fd;
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.filter-count {
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.25);
+  margin-left: 6px;
+}
+
+.filter-btn:not(.active) .filter-count {
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+/* ================= Slot Selector Grid ================= */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+}
+
+.slot-btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-color);
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  user-select: none;
+}
+
+.slot-btn:hover:not(.disabled):not(.booked) {
+  border-color: var(--primary-color);
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.slot-btn.selected {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+}
+
+.slot-btn.booked {
+  background-color: #fee2e2;
+  border-color: #fecaca;
+  color: #991b1b;
+  cursor: not-allowed;
+  opacity: 0.85;
+  text-decoration: line-through;
+}
+
+.slot-btn.booked::after {
+  content: "Booked";
+  position: absolute;
+  top: -8px;
+  right: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  background-color: #ef4444;
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* ================= Badges ================= */
+.badge-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.badge-confirmed {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-completed {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.status-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ================= Tables ================= */
+.table-custom {
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.table-custom th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-custom td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.92rem;
+}
+
+/* ================= Alerts & Modals ================= */
+.alert-floating {
+  position: fixed;
+  top: 85px;
+  right: 25px;
+  z-index: 1060;
+  min-width: 320px;
+  max-width: 450px;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-sm);
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ================= Medical Report Print Style ================= */
+@media print {
+  body {
+    background-color: #fff !important;
+  }
+  .no-print, header, footer, .navbar {
+    display: none !important;
+  }
+  .print-container {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}

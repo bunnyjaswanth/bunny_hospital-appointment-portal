@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: hospital-appointment-portal-demo
+    runtime: python
+    rootDir: .
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --no-input && python manage.py migrate && python create_superuser.py"
+    startCommand: "gunicorn sbj.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: WEB_CONCURRENCY
+        value: 2
+      - key: RENDER
+        value: "True"
+      - key: SECRET_KEY
+        generateValue: true
